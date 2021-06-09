@@ -14,8 +14,9 @@
         <div class="flex justify-between">
             {{-- primary nav --}}
             <div class="hidden md:flex items-center space-x-1"> 
-                <a href="#"class=" py-4 px-3 text-gray-700 hover:text-gray-900">Homes for rent</a>
-                <a href="#"class=" py-4 px-3 text-gray-700 hover:text-gray-900">Pricing</a> 
+                @auth
+                <a href="{{ route('newHome') }}"class="px-3 py-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transiton duration-300">Register a Home</a>
+                @endauth
              </div>
 {{-- logo --}}
 <div >
