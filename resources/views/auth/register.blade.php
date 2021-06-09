@@ -7,8 +7,8 @@
 
 
 
-<div class="flex justify-center mt-8">
-    <div class="w-4/12 bg-white p-6 rounded-lg ">
+<div class="flex justify-center mt-8 ">
+    <div class=" bg-white p-6 rounded-lg sm:mb-8  md:w-5/12 ">
 
 <form action="{{ route('register') }}" method="post">   
     {{-- this is cross site request forgery prtoection.  --}}
@@ -18,7 +18,7 @@
     <input type="text" name="name" id="name" placeholder="Your name"
     class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('name') border-red-500 @enderror value='{{old('name')}}'">
     @error('name')
-<div class=text-red-500 mt-2 text-2m>
+<div class="text-red-500 mt-2 text-2m">
     {{ $message }}
 </div>
     @enderror

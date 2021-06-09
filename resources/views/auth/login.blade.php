@@ -8,7 +8,7 @@
 
 
 <div class="flex justify-center mt-8">
-    <div class="w-4/12 bg-white p-6 rounded-lg ">
+    <div class=" bg-white p-6 rounded-lg sm:w-4/12 md:w-6/12 ">
 @if(session('status'))
 <div class="bg-red-500 px-4 py-3 rounded-lg mb-6 text-white text-center font-medium w-full">
 {{ session('status') }}

@@ -6,7 +6,7 @@
        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
 <div>
-    <body>
+    <body >
       
 {{-- Navbar goes here --}}
 <nav class="bg-gray-100">
