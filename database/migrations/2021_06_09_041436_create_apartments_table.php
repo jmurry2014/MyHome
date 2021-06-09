@@ -15,12 +15,12 @@ class CreateApartmentsTable extends Migration
     {
         Schema::create('apartments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->nullable()->index();
+            $table->unsignedInteger('user_id')->unsigned()->nullable()->index();
             $table->string('name');
             $table->string('address');
             $table->string('city');
             $table->string('state');
-            $table->tinyInteger('zip');
+            $table->integer('zip');
             $table->integer('price');
             $table->tinyInteger('rooms');
             $table->boolean('availability');

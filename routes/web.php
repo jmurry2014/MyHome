@@ -6,7 +6,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\NewHomeController;
-use App\Models\User;
 
 
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
@@ -23,6 +22,7 @@ Route::post('/register',[RegisterController::class,'storeUser']);
 
 
 Route::get('/registerHome',[NewHomeController::class,'index'])->name('newHome');
+Route::get('/registerHome',[NewHomeController::class,'newListing']);
 
 
 
