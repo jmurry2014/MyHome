@@ -24,7 +24,7 @@ class RegisterController extends Controller
 
 protected function storeUser( Request $request)
 {
-
+// this is ensuring that the form is meeting these requirements in the array
  $this->validate($request,[
         'name' => 'required|max:255',
         'username' => 'required|max:255',
@@ -32,6 +32,7 @@ protected function storeUser( Request $request)
         'password' => 'required|confirmed',
 
     ]);
+    // after validation this will create a new user with a protected password
 
 User::create([
 'name'=>$request->name,
@@ -46,8 +47,9 @@ User::create([
 // auth()->check($request->only('username','password'));
 
 // return redirect()->route('dashboard');
+// this will log in the user with email and password credentials they created from the form 
 
-$credentials = $request->only('username', 'password');
+$credentials = $request->only('email', 'password');
 
 if (Auth::attempt($credentials)) {
     $request->session()->regenerate();

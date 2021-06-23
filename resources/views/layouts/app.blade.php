@@ -4,9 +4,10 @@
        <meta charset="UTF-8" />
        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    </head>
-<div>
-    <body >
+       
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <script src="https://maps.googleapis.com/maps/api/js?key={{env('API_KEY')}}&libraries=places"></script>
+    <body>
       
 {{-- Navbar goes here --}}
 <nav class="bg-gray-100">
@@ -40,7 +41,7 @@
 
     
 @auth
-    <a href=""class="p-3">James Murry</a>
+    <a href=""class="p-3 font-bold">{{ auth()->user()->name}}</a>
     <form action="{{ route('logout') }}" method="post" class="p-3 inline">
         @csrf
         <button type=submit class="px-3 py-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transiton duration-300">logout</button>
@@ -72,7 +73,6 @@
 
 
 
-
 {{-- Content goes here --}}
 
 
@@ -82,8 +82,8 @@
 
 
 
-
 @yield('content')
+<script src="{{asset('js/app.js')}}"></script>
 
     </body>
 
@@ -98,6 +98,4 @@
 
 
 
-<script src="{{asset('js/app.js')}}"></script>
-</body>
 </html>
