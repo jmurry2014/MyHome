@@ -37,6 +37,17 @@ public function storeData(Request $request){
 
 
 // ]);
+$key=env('API_KEY');
+$address=$request->address;
+$response=http::get("https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=$key
+");
+json_decode($response);
+
+
+
+
+    dd( $response->json(['results']));
+
 
 $newHome = new Apartment;
 $newHome->address=$request->address;
@@ -44,12 +55,6 @@ $newHome->user_id=$id;
 $newHome->price=$request->cost; 
 $newHome->rooms=$request->rooms;
 $newHome->save(); 
-
-$key=env('API_KEY');
-$address=$request->address;
-$response=http::get("https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=$key
-");
-    dd( $response->json());
 
 
 
