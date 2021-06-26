@@ -23,7 +23,7 @@ Route::post('/register',[RegisterController::class,'storeUser']);
 
 
 Route::get('/registerHome',[NewHomeController::class,'index'])->name('newHome')->middleware('auth');
-Route::post('/registerHome',[NewHomeController::class,'newListing']);
+Route::post('registerHome/create',[NewHomeController::class,'storeData'])->name('createHome');
 
 
 
