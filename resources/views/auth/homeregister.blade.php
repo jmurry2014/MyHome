@@ -30,7 +30,7 @@ label{
     {{-- this is cross site request forgery prtoection.  --}}
     @csrf
 
-    <label for="adress">Street Adress</label>
+    <label for="address">Street Adress</label>
 <div class="mb-4">
 
 
@@ -86,6 +86,15 @@ label{
     </div>
     </div>
 
+
+
+
+
+
+
+
+
+
     <script>
         function initialize() {
           var options = {
@@ -95,50 +104,6 @@ label{
       types: ["address"],
       
           };
-
-// Address components (I was trying to get the components of said address to seperate form fields so i could have stae city zip etc by themselves instead of one string seperated by commas)
-var location="22 main st Boston MA"
-axios.get('http://maps.googleapis.com/maps/api/geocode/json',{
- params:{
-     address:location,
-     key:'{{env('API_KEY')}}'
-
-
- }  
-    
-
-}).then(function(response){
-
-console.log(response)
-
-
-
-
-
-}).catch(function(error){
-    console.log(error)
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           var input = document.getElementById('address');
           var autocomplete = new google.maps.places.Autocomplete(input, options);
       }

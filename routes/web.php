@@ -23,6 +23,9 @@ Route::post('/register',[RegisterController::class,'storeUser']);
 
 
 Route::get('/registerHome',[NewHomeController::class,'index'])->name('newHome')->middleware('auth');
+
+Route::get('/apiTest',[NewHomeController::class,'apiData']);
+
 Route::post('registerHome/create',[NewHomeController::class,'storeData'])->name('createHome');
 
 
