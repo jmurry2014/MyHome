@@ -41,12 +41,14 @@ $key=env('API_KEY');
 $address=$request->address;
 $response=http::get("https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=$key
 ");
-json_decode($response);
 
+$result=$response->json(['results']);
+$geometryData=$result[0]['geometry'];
+$location=$geometryData['location'];
+$lat=$location['lat'];
+$lng=$location['lng'];
 
-
-
-    dd( $response->json(['results']));
+dd($lng);
 
 
 $newHome = new Apartment;
