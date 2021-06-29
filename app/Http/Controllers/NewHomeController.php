@@ -60,13 +60,13 @@ if($components[$i]['types'][0]=='locality'){
 
 }else if($components[$i]['types'][0]=='administrative_area_level_1'){
     $state=$components[$i]['long_name'];
+}else if($components[$i]['types'][0]=='street_number'){
+    $streetNumber=$components[$i]['long_name'];
+}else if($components[$i]['types'][0]=='route'){
+    $route=$components[$i]['long_name'];
 }
-
-
-
-
 };
-
+$address=$streetNumber.' '.$route;
 
 
 
@@ -82,7 +82,7 @@ if($components[$i]['types'][0]=='locality'){
 
 
 $newHome = new Apartment;
-$newHome->address=$request->address;
+$newHome->address=$address;
 $newHome->user_id=$id;
 $newHome->city=$locality;
 $newHome->state=$state;
@@ -97,6 +97,7 @@ $newHome->save();
 
 
 
+return view('posts.housing');
 
 
 }

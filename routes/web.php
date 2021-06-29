@@ -22,10 +22,11 @@ Route::post('/register',[RegisterController::class,'storeUser']);
 
 
 
+
+
+
 Route::get('/registerHome',[NewHomeController::class,'index'])->name('newHome')->middleware('auth');
-
 Route::get('/apiTest',[NewHomeController::class,'apiData']);
-
 Route::post('registerHome/create',[NewHomeController::class,'storeData'])->name('createHome');
 
 
@@ -40,6 +41,6 @@ Route::post('registerHome/create',[NewHomeController::class,'storeData'])->name(
 
 
 
-Route::get('/posts', function () {
-    return view('posts.index');
+Route::get('/housing', function () {
+    return view('posts.housing');
 });
