@@ -13,6 +13,9 @@ class Apartment extends Model
         'user_id',
         'address',
         'price',
+        'city',
+        'state',
+        'zip',
         'rooms',
   
     ];
