@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Http;
 use App\Models\Apartment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-class NewHomeController extends Controller
-{
-    //
+use Illuminate\Support\Facades\DB;
+
+class NewHomeController extends Controller{
 
 
 public function index(){
@@ -44,14 +44,16 @@ $response=http::get("https://maps.googleapis.com/maps/api/geocode/json?address=$
 
 $result=$response->json(['results']);
 // Latitude Longitude results
+
 $geometryData=$result[0]['geometry'];
+
 $location=$geometryData['location'];
 $lat=$location['lat'];
 $lng=$location['lng'];
 
 // Address Components CITY STATE ZIP
 $components=$result[0]['address_components'];
-//   dd($components);
+   dd($components);
 for($i=0;$i<count($components);$i++){
 if($components[$i]['types'][0]=='locality'){
     $locality=$components[$i]['long_name'];
@@ -96,23 +98,17 @@ $newHome->save();
 
 
 
+$latlng= DB::select("SELECT latitude,longitude FROM apartments");
+return view('posts.housing',['latlng'=>$latlng]);
+}
 
-return view('posts.housing');
+public function maps(){
+    $latlng= DB::select("SELECT latitude,longitude FROM apartments");
 
+    return view('posts.housing',['latlng'=>$latlng]);
 
 }
 
-
-
-function apiData(){
-$key=env('API_KEY');
-
-
-
-    // return http::get("https://maps.googleapis.com/maps/api/geocode/json?address=100+Amphith6eatre+Parkway,
-    // +Mountain+View,+CA&key=$key
-    // ");
-}
 
 
 

@@ -1846,7 +1846,42 @@ var btn = document.querySelector('.mobile-menu-button');
 var menu = document.querySelector('.mobile-menu');
 btn.addEventListener('click', function () {
   menu.classList.toggle("hidden");
-});
+}); // for (var i=0;i<latlng.length;i++){
+// var coords=latlng[i].latitude +' '+latlng[i].longitude
+// console.log(coords)
+// }
+
+for (var i = 0; i < latlng.length; i++) {
+  var lng = parseFloat(latlng[i].longitude);
+  var lat = parseFloat(latlng[i].latitude);
+} // Google maps api 
+
+
+var map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: {
+      lat: lat,
+      lng: lng
+    },
+    zoom: 15
+  });
+
+  for (var _i = 0; _i < latlng.length; _i++) {
+    latlng.forEach(function (location) {
+      var lati = location.latitude;
+      var lngi = location.longitude;
+      var test = new google.maps.LatLng(lati, lngi);
+      var marker = new google.maps.Marker({
+        position: test,
+        map: map
+      });
+    });
+  }
+}
+
+initMap();
 
 /***/ }),
 

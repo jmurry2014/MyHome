@@ -34,7 +34,7 @@ public function signIn(Request $request){
 if (Auth::attempt($credentials)) {
     $request->session()->regenerate();
 
-    return redirect()->intended('dashboard');
+    return redirect()->intended(route('newHome'));
 }
 // will use this in my login blade file
 return back()->with('status', 'Invalid login credentials');

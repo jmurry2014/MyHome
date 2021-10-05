@@ -40,7 +40,6 @@ Route::post('registerHome/create',[NewHomeController::class,'storeData'])->name(
 
 
 
-
 Route::get('/housing', function () {
     return view('posts.housing');
 });
