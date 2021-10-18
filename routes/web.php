@@ -7,12 +7,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\NewHomeController;
 
-
+Route::get('/', function () {return view('posts.home');})->name('home');
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard')->middleware('auth');
 Route::post('/logout',[LogoutController::class,'index'])->name('logout');
 
-Route::get('/', function () {
- return view('posts.home');})->name('home');
+
 
 Route::get('/login',[LoginController::class,'index'])->name('login');
 Route::post('/login',[LoginController::class,'signIn']);
@@ -26,8 +25,7 @@ Route::post('/register',[RegisterController::class,'storeUser']);
 
 
 Route::get('/registerHome',[NewHomeController::class,'index'])->name('newHome')->middleware('auth');
-Route::get('/apiTest',[NewHomeController::class,'apiData']);
-Route::post('registerHome/create',[NewHomeController::class,'storeData'])->name('createHome');
+Route::post('registerHome',[NewHomeController::class,'storeData'])->name('createHome');
 
 
 

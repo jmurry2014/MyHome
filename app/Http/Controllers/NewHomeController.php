@@ -53,7 +53,7 @@ $lng=$location['lng'];
 
 // Address Components CITY STATE ZIP
 $components=$result[0]['address_components'];
-   dd($components);
+//    dd($components);
 for($i=0;$i<count($components);$i++){
 if($components[$i]['types'][0]=='locality'){
     $locality=$components[$i]['long_name'];
@@ -82,7 +82,6 @@ $address=$streetNumber.' '.$route;
 
 
 
-
 $newHome = new Apartment;
 $newHome->address=$address;
 $newHome->user_id=$id;
@@ -95,20 +94,12 @@ $newHome->longitude=$lng;
 $newHome->price=$request->cost; 
 $newHome->rooms=$request->rooms;
 $newHome->save(); 
-
-
-
+$apartment=Apartment::paginate(5);
 $latlng= DB::select("SELECT latitude,longitude FROM apartments");
-return view('posts.housing',['latlng'=>$latlng]);
-}
-
-public function maps(){
-    $latlng= DB::select("SELECT latitude,longitude FROM apartments");
-
-    return view('posts.housing',['latlng'=>$latlng]);
+// returning both latlng and all the info to my apartments in pagination
+return view('posts.housing',['latlng'=>$latlng],['apartment'=>$apartment]);
 
 }
-
 
 
 
