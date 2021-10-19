@@ -27,6 +27,7 @@ Route::post('/register',[RegisterController::class,'storeUser']);
 Route::get('/registerHome',[NewHomeController::class,'index'])->name('newHome')->middleware('auth');
 Route::post('registerHome',[NewHomeController::class,'storeData'])->name('createHome');
 
+Route::get('/viewHomes',[NewHomeController::class,'paginatePage'])->name('viewHomes');
 
 
 
