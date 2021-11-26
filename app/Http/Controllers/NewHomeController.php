@@ -89,13 +89,13 @@ $newHome->city=$locality;
 $newHome->state=$state;
 $newHome->zip=$postalCode;
 $newHome->latitude=$lat;
-$newHome->longitude=$lng;
+$newHome->longitude=$lng;   
 
 $newHome->price=$request->cost; 
 $newHome->rooms=$request->rooms;
 $newHome->save(); 
 $latlng= DB::select("SELECT latitude,longitude FROM apartments");
-$apartment=Apartment::paginate(5);
+$apartment=Apartment::paginate(6);
 $apartment->withPath('/viewHomes');
 // returning both latlng and all the info to my apartments in pagination
 return view('posts.housing',['latlng'=>$latlng],['apartment'=>$apartment]);
@@ -106,7 +106,7 @@ return view('posts.housing',['latlng'=>$latlng],['apartment'=>$apartment]);
 // created this function so that when you are paginating through listings you will stay on that page rather than being redirected back to the begining of the storeData function.
 public function paginatePage(){
 $latlng= DB::select("SELECT latitude,longitude FROM apartments");
-$apartment=Apartment::paginate(5);
+$apartment=Apartment::paginate(6);
 $apartment->withPath('/viewHomes');
     return view('posts.housing',['latlng'=>$latlng],['apartment'=>$apartment]);
 }

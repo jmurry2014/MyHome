@@ -3,3 +3,63 @@
 @tailwind utilities;
 
 
+
+
+
+.container{
+  
+width: 50%;
+    
+ 
+  
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#map{
+    position: absolute;
+    left: 50vw;
+    right: 0;
+    top: 90px;
+    bottom: 0;
+    height: 126.5vh;
+}
+
+.houseCard{
+background-color: #C5D86D;
+
+
+
+
+margin: 30px;
+border-radius: 20px;
+opacity: .8;
+
+}
+
+.houseCard img{
+
+width: 100%;
+    }
+.houseCard H1{
+
+  font-weight: bolder;
+  font-size: 32px   ;
+}
+
+.houseCard H1 span{
+    font-weight: bolder;
+    font-size: 18px   ;
+  }
+  .houseCard .info{
+  padding-left: 10px;
+  }
+  
+
+.houseCard p{
+
+    font-weight: bolder;
+    font-size: 14px   ;
+  }
+  

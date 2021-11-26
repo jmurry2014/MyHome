@@ -9,23 +9,32 @@
 
 
 @section('content')
-<div class="grid">
-  <div id="map" class="col-start-1 col-end-7  h-screen "></div>
-<section class="grid col-start-7 col-end-8">
-@foreach ( $apartment as $apartments)
-<div id="houseCard" class="grid justify-items-center  bg-gray-500  max-h-36" >
-  <h1 class="font-bold text-2xl text-center ">The Nest</h1>
-  <p class="text-md">{{ $apartments->address }}, {{ $apartments->city }}, {{ $apartments->state }} {{ $apartments->zip }}</p>
+<div class="container">
+  <div id="map" class=""></div>
+<div class="grid-container">
+  @foreach ( $apartment as $apartments)
+  <div class="houseCard" >
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi6Fk4KETcZwwDktC1-JeG1nydGOBEY11rmQ&usqp=CAU" alt="logo">
+    <div class="info"> 
+      <h1 class="">$900 <span>1 bd</span></h1> 
+      <p class="">The Nest | {{ $apartments->address }}, {{ $apartments->city }}, {{ $apartments->state }} {{ $apartments->zip }}</p>
+    </div>
+  
+  
+  
+  <br>
+  </div>
+  @endforeach
 
-<img src="" alt="logo">
 </div>
-@endforeach
+
 
 {{-- this adds in the pagination through bootstrap bringing in all info from my apartments --}}
-{{   $apartment->links() }};
 
-</section>
+
+{{   $apartment->links() }}
 
 </div>
+
 
   @endsection
