@@ -16,7 +16,7 @@
   <div class="houseCard" >
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi6Fk4KETcZwwDktC1-JeG1nydGOBEY11rmQ&usqp=CAU" alt="logo">
     <div class="info"> 
-      <h1 class="">$900 <span>1 bd</span></h1> 
+      <h1 class="">${{ $apartments->price }} <span>{{ $apartments->rooms }} bd</span></h1> 
       <p class="">The Nest | {{ $apartments->address }}, {{ $apartments->city }}, {{ $apartments->state }} {{ $apartments->zip }}</p>
     </div>
   

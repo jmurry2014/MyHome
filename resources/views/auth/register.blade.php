@@ -23,9 +23,8 @@
 </div>
     @enderror
 </div>
-
 <div class="mb-4">
-    <label for="name" class="sr-only">Username</label>
+    <label for="username" class="sr-only">Username</label>
     <input type="text" name="username" id="username" placeholder="Username"
     class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('username') border-red-500 @enderror value='{{ old('username') }}'">
     @error('username')
@@ -44,8 +43,6 @@
     </div>
         @enderror
 </div>
-
-
 <div class="mb-4">
     <label for="password" class="sr-only">Password</label>
     <input type="password" name="password" id="password" placeholder="Choose a password"
@@ -56,32 +53,31 @@
     </div>
         @enderror
 </div>
-
 <div class="mb-4">
+    {{-- The field under validation must have a matching field of foo_confirmation --}}
     <label for="password_confirmation" class="sr-only">Password again</label>
     <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Repeat your password"
     class="bg-gray-100 border-2 w-full p-4 rounded-lg value=''">
     
 </div>
-
-
-
 <div class="flex justify-between">
-
     <button type="submit" class="bg-blue-500 px-4 py-3 rounded-lg mb-6 text-white text-center font-medium w-full">
         Register
     </button>
-
-   
 </div>
-
-
-
 </form>
 
 
 
     </div>
     </div>
+
+
+
+
+
+
+
+
 
     @endsection

@@ -38,7 +38,7 @@
   componentRestrictions: { country: "us" },
 fields: ["formatted_address", "geometry", "name"],
 strictBounds: false,
-types: ["(cities)"],
+types: ["address"],
 
     };
     var input = document.getElementById('address');

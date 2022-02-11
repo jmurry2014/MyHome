@@ -25,7 +25,7 @@ return view('auth.login');
 
 public function signIn(Request $request){
     $this->validate($request,[
-        'email' => 'required',
+        'email' => ['required','email'],
         'password' => 'required',
 
     ]);

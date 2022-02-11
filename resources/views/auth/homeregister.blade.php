@@ -37,13 +37,23 @@ label{
 
     <input type="text" name="address" id="address" placeholder="Street Adress..."
     class="bg-gray-100 border-2 w-full p-4 rounded-lg ">
-
+@error('address')
+<div class=text-red-500 mt-2 text-2m>
+    {{ $message }}
+</div>
+@enderror
 </div>
 
 <label for="unit">Unit Number (If applicable)</label>
 <div class="mb-4">
     <input type="text" name="unit" id="unit" placeholder="Unit Number"
     class="bg-gray-100 border-2 w-full p-4 rounded-lg ">
+    @error('unit')
+
+    <div class=text-red-500 mt-2 text-2m>
+        {{ $message }}
+    </div>
+    @enderror
  
 </div>
 <div class="grid grid-cols-3 gap-4">
@@ -55,9 +65,15 @@ label{
 
    <input type="text" name="cost" id="cost" placeholder="Cost Per month"
    class="bg-gray-100 border-2 mt-2 m-4 p-4 rounded-lg ">
+   @error('price')
+
+   <div class=text-red-500 mt-2 text-2m>
+       {{ $message }}
+   </div>
+   @enderror
    <div>
-<label for="rooms"> number of rooms</label>
-   <select name="rooms" id="rooms" class="mt-2 mb-4 bg-gray-100 border-2 w-full p-4 rounded-lg" >
+   <select name="rooms" id="rooms" class="mt-2 mb-4 bg-gray-100 border-2 w-full p-4 rounded-lg">
+    <option value="" disabled selected>Number of Rooms</option>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -69,6 +85,7 @@ label{
     <option value="9">9</option>
     <option value="10">10</option>
    </select>
+
 </div>
 
 </div>

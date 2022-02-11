@@ -17,6 +17,7 @@
                 @auth
                 <a href="{{ route('newHome') }}"class="px-3 py-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transiton duration-300">Register a Home</a>
                 @endauth
+                <a href="{{ route('viewHomes') }}"class="px-3 py-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transiton duration-300">View Homes</a>
              </div>
 {{-- logo --}}
     <a href="{{ route('home') }}"class="flex items-center py-4 px-2 text-gray-700 hover:text-gray-900 ">
@@ -73,7 +74,15 @@
 
 {{-- Content goes here --}}
 
+@if ($errors->any())
+    @foreach ($errors->all as $error)
+        <div class="alert alert-danger" role="alert">
+        <li> {{ $error }}</li>   
+        </div>
 
+
+    @endforeach
+@endif
 
 
 

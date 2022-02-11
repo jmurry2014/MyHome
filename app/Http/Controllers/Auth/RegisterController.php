@@ -26,8 +26,8 @@ protected function storeUser( Request $request)
 {
 // this is ensuring that the form is meeting these requirements in the array
  $this->validate($request,[
-        'name' => 'required|max:255',
-        'username' => 'required|max:255',
+        'name' => 'required|max:255|min:5|alpha',
+        'username' => 'required|max:255|min:5',
         'email' => 'required|email|max:255',
         'password' => 'required|confirmed',
 
@@ -56,6 +56,7 @@ if (Auth::attempt($credentials)) {
 
     return redirect()->intended('/');
 }
+
 
 return back()->withErrors([
     'email' => 'The provided credentials do not match our records.',
